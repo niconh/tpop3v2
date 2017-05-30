@@ -142,13 +142,11 @@ public class Ejercicio1 {
 		if(i < puntosIzq.size()) {
 			for(int k = i; k < puntosIzq.size(); k++) {
 				puntosOrd.add(puntosIzq.get(k));
-				this.cantInstrucciones++;
 			}
 		}
 		if (j < puntosDer.size()) {
 			for(int k = j; k < puntosDer.size(); k++) {
 				puntosOrd.add(puntosDer.get(k));
-				this.cantInstrucciones++;
 			}
 		}
 
