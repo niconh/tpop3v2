@@ -118,7 +118,6 @@ public class Ejercicio1 {
 		
 		List<Punto> puntosOrd = new ArrayList<Punto>();
 		Comparator<Punto> porXluegoPorY = new Comparator<Punto>() {
-			@Override
 			public int compare(Punto p1, Punto p2) {
 				int res = p1.getX() - p2.getX();
 				if (res == 0) {
@@ -133,12 +132,10 @@ public class Ejercicio1 {
 			if (porXluegoPorY.compare(puntosIzq.get(i),  puntosDer.get(j)) < 0) {
 				puntosOrd.add(puntosIzq.get(i));
 				i++;
-				this.cantInstrucciones++;
 			}
 			else{
 				puntosOrd.add(puntosDer.get(j));
 				j++;
-				this.cantInstrucciones++;
 			}
 		}
 		
