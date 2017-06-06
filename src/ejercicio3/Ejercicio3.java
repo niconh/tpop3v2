@@ -5,17 +5,12 @@ import java.util.*;
 
 public class Ejercicio3 {
 	
-	public Hashtable<String, Integer> crearParticiones(Grafo grafo){
-		Hashtable<String, Integer> particiones = new Hashtable<String, Integer>();
-		
-		int nroParticion = 1;
-		
-		for(Vertice ver: grafo.getVertices()){
-			particiones.put(ver.getNombre(), nroParticion);
-			nroParticion++;			
-		}
-		
-		return particiones;
+	public void ordenarAristasDeMenorAMayor(Grafo grafo){
+		Collections.sort(grafo.getAristas(), new Comparator<Arista>(){ 
+			public int compare(Arista a1, Arista a2) {
+				return new Integer(a1.getPeso()).compareTo(new Integer(a2.getPeso()));
+			}
+		});
 	}
 	
 	public Hashtable<String, Integer> unirParticiones(Hashtable<String, Integer> particiones, Arista a){
@@ -32,45 +27,44 @@ public class Ejercicio3 {
 		return particiones;
 	}
 	
-	public void ordenarAristasDeMenorAMayor(Grafo grafo){
-		Collections.sort(grafo.getAristas(), new Comparator<Arista>(){ 
-			public int compare(Arista a1, Arista a2) {
-				return new Integer(a1.getPeso()).compareTo(new Integer(a2.getPeso()));
-			}
-		});
-	}
-	
-	
-	public Grafo Kruskal(Grafo grafo){
+	public SolucionEjercicio3 Kruskal(Grafo grafo){
 		
-		ordenarAristasDeMenorAMayor(grafo);		
-	
-		Grafo SP = new Grafo(new ArrayList<Vertice>(), new ArrayList<Arista>());
+		int cantInstrucciones=1;
 		
-		SP.setVertices(grafo.getVertices());
+		ordenarAristasDeMenorAMayor(grafo); cantInstrucciones++;
+	
+		Grafo SP = new Grafo(new ArrayList<Vertice>(), new ArrayList<Arista>()); 
+		
+		SP.setVertices(grafo.getVertices()); 
 		
 		Hashtable<String, Integer> particiones = new Hashtable<String, Integer>();
 		int nroParticion = 1;
 		for(Vertice ver: grafo.getVertices()){
 			particiones.put(ver.getNombre(), nroParticion);
 			nroParticion++;			
+			cantInstrucciones++;
 		}
 		
 		for(Arista arista: grafo.getAristas()){
 			if( particiones.get(arista.getOrigen().getNombre()) != particiones.get(arista.getDestino().getNombre()) ) {
 				SP.agregarArista(arista); 
 				particiones = unirParticiones(particiones,arista);
+				cantInstrucciones++;
 			}
 		}
+		
+		int suma=0;
+		for(Arista a: SP.getAristas()){
+			suma = suma + a.getPeso();
+		}
 				
-		
-		return SP;
-		
+		return new SolucionEjercicio3(suma,cantInstrucciones,SP);
 	}
-	
-	
-	
-	
+		
+
+		
+		
+}
 	
 	
 	
@@ -81,4 +75,4 @@ public class Ejercicio3 {
 	
 	
 
-}
+

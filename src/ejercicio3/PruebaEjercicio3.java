@@ -2,6 +2,8 @@ package ejercicio3;
 
 import java.util.*;
 
+import org.junit.Assert;
+
 public class PruebaEjercicio3 {
 
 	public static void main(String[] args) {
@@ -33,15 +35,23 @@ public class PruebaEjercicio3 {
 		grafo.agregarArista(new Arista(new Vertice("A"),new Vertice("D"),3));
 		grafo.agregarArista(new Arista(new Vertice("H"),new Vertice("G"),2));
 		
-		Grafo minimo = test.Kruskal(grafo);
 		
-		for(Arista arista: minimo.getAristas()){
-			System.out.println(arista.getOrigen().getNombre() + arista.getPeso() + arista.getDestino().getNombre());
+		SolucionEjercicio3 solucion = test.Kruskal(grafo);
+		
+		Assert.assertEquals("Test suma de pesos de las aristas", 20, solucion.getSumatoriaAristasSP(), 0.1);
+		Assert.assertEquals("Test cantidad de insutrcciones", 17, solucion.getCantidadInstrucciones(), 0.1);
+		
+		System.out.println("Suma de las aristas del Spanning Tree: "+solucion.getSumatoriaAristasSP());
+		System.out.println("Cantidad de instrucciones ejecutadas: "+solucion.getCantidadInstrucciones());
+		
+		
+		System.out.println();
+		System.out.println("Grafo resultante:");
+		for(Arista a: solucion.getGrafo().getAristas()){
+			System.out.println(a.getOrigen().getNombre() + a.getPeso() + a.getDestino().getNombre());
 		}
 		
-//		for(Vertice vertice: minimo.getVertices()){
-//			System.out.println(vertice.getNombre());
-//		}
+
 	
 	
 	}

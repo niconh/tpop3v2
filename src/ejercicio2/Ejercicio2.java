@@ -25,55 +25,18 @@ public class Ejercicio2 {
 		tareas.add(new Tarea(21,23));
 		tareas.add(new Tarea(10,12));
 		tareas.add(new Tarea(5,6));
-		tareas.add(new Tarea(18,21));
-		tareas.add(new Tarea(15,21));
-		tareas.add(new Tarea(19,21));
-		tareas.add(new Tarea(15,16));
-		
-		//tareas.add(new Tarea(10,19));
-		//tareas.add(new Tarea(15,20));
-		//tareas.add(new Tarea(15,17));
-		
+
 		return tareas;
 	}
 	
 	public void ordenarTareas(List<Tarea> tareas){
 		Collections.sort(tareas, new Comparator<Tarea>(){
-
 			public int compare(Tarea t1, Tarea t2) {
 				return new Integer(t1.duracionTarea()).compareTo(new Integer(t2.duracionTarea()));
 			}
 		});
 	}
 	
-	public void ordenarTareasPorInicio(List<Tarea> tareas){
-		Collections.sort(tareas, new Comparator<Tarea>(){
-
-			public int compare(Tarea t1, Tarea t2) {
-				return new Integer(t1.getInicio()).compareTo(new Integer(t2.getInicio()));
-			}
-		});
-	}
-	
-	public void listarDuracionTareas(List<Tarea> tareas){
-		
-		int cant = 0;
-		for(Tarea tarea: tareas){
-			System.out.println(tarea.duracionTarea());
-			cant++;
-		}
-		System.out.println(cant);
-		
-	}
-	
-	public void listarTareas(List<Tarea> tareas){
-		int cant = 0;
-		for(Tarea tarea: tareas){
-			System.out.println(tarea.getInicio()+"-"+tarea.getFin());
-			cant++;
-		}
-		System.out.println("Total tareas:"+cant);
-	}
 	
 	public boolean VerificarNoSuperposicion(List<Tarea> tareasRealizadas, Tarea tareaPosible){
 		boolean res = true; 
@@ -87,22 +50,80 @@ public class Ejercicio2 {
 		return res;
 	}
 
-	public List<Tarea> cantidadMaximaDeTareas(List<Tarea> tareas){
+	public SolucionEjercicio2 cantidadMaximaDeTareas(List<Tarea> tareas){
 		
 		ordenarTareas(tareas);
 		
 		int cantidadTareas = 0;
+		int cantidadInstrucciones = 0;
 		
 		List<Tarea> listaDeTareas = new ArrayList<Tarea>();
 		
 		for(Tarea tarea: tareas){
+			
+			cantidadInstrucciones++;
+			
 			if(VerificarNoSuperposicion(listaDeTareas,tarea)){
 				listaDeTareas.add(tarea);
 				cantidadTareas++;
 			}
 		}
 		
+		return new SolucionEjercicio2(cantidadTareas,cantidadInstrucciones);
+	}
+	
+
+	
+	
+	
+	
+	//Metodos auxiliares
+	
+	public List<Tarea> listaMaximaDeTareas(List<Tarea> tareas){
+		
+		ordenarTareas(tareas);
+				
+		List<Tarea> listaDeTareas = new ArrayList<Tarea>();
+		
+		for(Tarea tarea: tareas){
+						
+			if(VerificarNoSuperposicion(listaDeTareas,tarea)){
+				listaDeTareas.add(tarea);
+			}
+		}
+		
 		return listaDeTareas;
 	}
+	
+	
+	public void listarTareas(List<Tarea> tareas){
+		int cant = 0;
+		for(Tarea tarea: tareas){
+			System.out.println(tarea.getInicio()+"-"+tarea.getFin());
+			cant++;
+		}
+		System.out.println("Total tareas:"+cant);
+	}
+	
+	public void listarDuracionTareas(List<Tarea> tareas){
+		
+		int cant = 0;
+		for(Tarea tarea: tareas){
+			System.out.println(tarea.duracionTarea());
+			cant++;
+		}
+		System.out.println(cant);
+		
+	}
+	
+	public void ordenarTareasPorInicio(List<Tarea> tareas){
+		Collections.sort(tareas, new Comparator<Tarea>(){
+
+			public int compare(Tarea t1, Tarea t2) {
+				return new Integer(t1.getInicio()).compareTo(new Integer(t2.getInicio()));
+			}
+		});
+	}
+	
 	
 }
