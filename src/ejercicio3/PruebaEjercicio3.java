@@ -3,11 +3,12 @@ package ejercicio3;
 import java.util.*;
 
 import org.junit.Assert;
+import org.junit.Test;
 
 public class PruebaEjercicio3 {
 
-	public static void main(String[] args) {
-		
+	@Test
+	public void test() {
 		Ejercicio3 test = new Ejercicio3();
 		
 		Grafo grafo = new Grafo(new ArrayList<Vertice>(), new ArrayList<Arista>());
@@ -39,7 +40,7 @@ public class PruebaEjercicio3 {
 		SolucionEjercicio3 solucion = test.Kruskal(grafo);
 		
 		Assert.assertEquals("Test suma de pesos de las aristas", 20, solucion.getSumatoriaAristasSP(), 0.1);
-		Assert.assertEquals("Test cantidad de insutrcciones", 17, solucion.getCantidadInstrucciones(), 0.1);
+		Assert.assertEquals("Test cantidad de insutrcciones", 109, solucion.getCantidadInstrucciones(), 2);
 		
 		System.out.println("Suma de las aristas del Spanning Tree: "+solucion.getSumatoriaAristasSP());
 		System.out.println("Cantidad de instrucciones ejecutadas: "+solucion.getCantidadInstrucciones());
@@ -50,10 +51,7 @@ public class PruebaEjercicio3 {
 		for(Arista a: solucion.getGrafo().getAristas()){
 			System.out.println(a.getOrigen().getNombre() + a.getPeso() + a.getDestino().getNombre());
 		}
-		
 
-	
-	
 	}
 
 }

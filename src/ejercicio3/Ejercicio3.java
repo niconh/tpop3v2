@@ -5,9 +5,12 @@ import java.util.*;
 
 public class Ejercicio3 {
 	
+	private static int cantInstrucciones = 0;
+	
 	public void ordenarAristasDeMenorAMayor(Grafo grafo){
 		Collections.sort(grafo.getAristas(), new Comparator<Arista>(){ 
 			public int compare(Arista a1, Arista a2) {
+				cantInstrucciones++;
 				return new Integer(a1.getPeso()).compareTo(new Integer(a2.getPeso()));
 			}
 		});
@@ -19,6 +22,7 @@ public class Ejercicio3 {
 		int min = Math.min(particiones.get(a.getOrigen().getNombre()), particiones.get(a.getDestino().getNombre()));
 		
 		for(String ver: particiones.keySet()){
+			cantInstrucciones++;
 			if(particiones.get(ver) == max){
 				particiones.put(ver, min);
 			}
@@ -29,9 +33,8 @@ public class Ejercicio3 {
 	
 	public SolucionEjercicio3 Kruskal(Grafo grafo){
 		
-		int cantInstrucciones=1;
 		
-		ordenarAristasDeMenorAMayor(grafo); cantInstrucciones++;
+		ordenarAristasDeMenorAMayor(grafo);
 	
 		Grafo SP = new Grafo(new ArrayList<Vertice>(), new ArrayList<Arista>()); 
 		

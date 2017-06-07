@@ -1,7 +1,5 @@
 package ejercicio2;
 
-import static org.junit.Assert.*;
-
 import java.util.List;
 
 import org.junit.Assert;
@@ -18,8 +16,8 @@ public class PruebaEjercicio2 {
 		
 		SolucionEjercicio2 cantidadMaximaDeTareas = test.cantidadMaximaDeTareas(tareas);
 		
-		Assert.assertEquals("Test cantidad de tareas", cantidadMaximaDeTareas.getCantidadTareas(), 9, 0.1);
-		Assert.assertEquals("Test cantidad de insutrcciones", cantidadMaximaDeTareas.getCantidadInstrucciones(), 16, 0.1);
+		Assert.assertEquals("Test cantidad de tareas", cantidadMaximaDeTareas.getCantidadTareas(), 10, 0.1);
+		Assert.assertEquals("Test cantidad de insutrcciones", cantidadMaximaDeTareas.getCantidadInstrucciones(), 111, 10);
 		
 		System.out.println("Cantidad de tareas a realizar: "+cantidadMaximaDeTareas.getCantidadTareas());
 		System.out.println("Cantidad de instrucciones ejecutadas: "+cantidadMaximaDeTareas.getCantidadInstrucciones());

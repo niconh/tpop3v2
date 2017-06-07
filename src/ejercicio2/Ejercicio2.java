@@ -5,6 +5,8 @@ import java.util.*;
 
 public class Ejercicio2 {
 	
+	private static int cantidadInstrucciones = 0;
+	
 	public List<Tarea> crearTareas(){
 	
 		List<Tarea> tareas = new ArrayList<Tarea>();
@@ -19,7 +21,7 @@ public class Ejercicio2 {
 		tareas.add(new Tarea(14,17));
 		tareas.add(new Tarea(15,18));
 		tareas.add(new Tarea(17,18));
-		tareas.add(new Tarea(22,24));
+		tareas.add(new Tarea(9,10));
 		tareas.add(new Tarea(23,24));
 		tareas.add(new Tarea(5,7));
 		tareas.add(new Tarea(21,23));
@@ -32,6 +34,8 @@ public class Ejercicio2 {
 	public void ordenarTareas(List<Tarea> tareas){
 		Collections.sort(tareas, new Comparator<Tarea>(){
 			public int compare(Tarea t1, Tarea t2) {
+				
+				
 				return new Integer(t1.duracionTarea()).compareTo(new Integer(t2.duracionTarea()));
 			}
 		});
@@ -42,6 +46,8 @@ public class Ejercicio2 {
 		boolean res = true; 
 		
 		for(Tarea tarea: tareasRealizadas){
+			
+			cantidadInstrucciones++;
 			
 			if(tarea.getInicio() < tareaPosible.getFin() && tarea.getFin() > tareaPosible.getInicio())
 				res = false;
@@ -55,7 +61,6 @@ public class Ejercicio2 {
 		ordenarTareas(tareas);
 		
 		int cantidadTareas = 0;
-		int cantidadInstrucciones = 0;
 		
 		List<Tarea> listaDeTareas = new ArrayList<Tarea>();
 		
