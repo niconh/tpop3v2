@@ -1,4 +1,4 @@
-package ejercicio4;
+package ejercicio5;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,12 +6,12 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class PruebaEjercicio4 {
+public class PruebaEjercicio5 {
 
 	@Test
 	public void test() {
 		
-		Ejercicio4 test = new Ejercicio4();
+		Ejercicio5 test = new Ejercicio5();
 		
 		List<ElementoMochila> elementos = new ArrayList<ElementoMochila>();
 		
@@ -30,15 +30,13 @@ public class PruebaEjercicio4 {
 		elementos.add(new ElementoMochila(3,6));
 		elementos.add(new ElementoMochila(3,5));
 		
-		SolucionEjercicio4 solucion = test.ejercicio4(elementos, 16);
+		SolucionEjercicio5 solucion = test.ejercicio5(elementos, 16);
 		
 		System.out.println("Ganancia: " + solucion.getGanaciaMaxima());
 		System.out.println("Cantidad de instrucciones: " + solucion.getCantidadInstrucciones());
 		
-		//Assert.assertEquals("Ganacia maxima de la mochila actual: ", 15, solucion.getGanaciaMaxima(), 1);
-		//Assert.assertEquals("Cantidad de instrucciones ejecutadas: ", 33, solucion.getCantidadInstrucciones(), 1);
-		
-		
+//		Assert.assertEquals("Ganacia maxima de la mochila actual: ", 15, solucion.getGanaciaMaxima(), 1);
+//		Assert.assertEquals("Cantidad de instrucciones ejecutadas: ", 41, solucion.getCantidadInstrucciones(), 1);
 	}
 
 }

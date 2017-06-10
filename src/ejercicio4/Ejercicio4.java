@@ -17,10 +17,10 @@ public class Ejercicio4 {
 		else{
 			if(capacidad > 0 && elementos.size() > 0){
 				cantInstrucciones++;
-				List<ElementoMochila> elementos1 = new ArrayList<ElementoMochila>(elementos);
-				elementos1.remove(0);
-				int ganancia1 = elementos.get(0).getGanancia() + mochila(elementos1, capacidad - elementos.get(0).getPeso());
-				int ganancia2 = mochila(elementos1, capacidad);
+				List<ElementoMochila> elementosMenos1 = new ArrayList<ElementoMochila>(elementos);
+				elementosMenos1.remove(0);
+				int ganancia1 = elementos.get(0).getGanancia() + mochila(elementosMenos1, capacidad - elementos.get(0).getPeso());
+				int ganancia2 = mochila(elementosMenos1, capacidad);
 				res = Math.max(ganancia1,ganancia2);	
 			}
 		}
