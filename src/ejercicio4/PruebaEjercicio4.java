@@ -20,23 +20,16 @@ public class PruebaEjercicio4 {
 		elementos.add(new ElementoMochila(2,4));
 		elementos.add(new ElementoMochila(3,6));
 		elementos.add(new ElementoMochila(3,5));
-		elementos.add(new ElementoMochila(2,4));
-		elementos.add(new ElementoMochila(3,6));
-		elementos.add(new ElementoMochila(3,5));
-		elementos.add(new ElementoMochila(2,4));
-		elementos.add(new ElementoMochila(3,6));
-		elementos.add(new ElementoMochila(3,5));
-		elementos.add(new ElementoMochila(2,4));
-		elementos.add(new ElementoMochila(3,6));
-		elementos.add(new ElementoMochila(3,5));
+		elementos.add(new ElementoMochila(3,4));
+		elementos.add(new ElementoMochila(2,6));
 		
-		SolucionEjercicio4 solucion = test.ejercicio4(elementos, 16);
+		SolucionEjercicio4 solucion = test.ejercicio4(elementos, 7);
 		
 		System.out.println("Ganancia: " + solucion.getGanaciaMaxima());
 		System.out.println("Cantidad de instrucciones: " + solucion.getCantidadInstrucciones());
 		
-		//Assert.assertEquals("Ganacia maxima de la mochila actual: ", 15, solucion.getGanaciaMaxima(), 1);
-		//Assert.assertEquals("Cantidad de instrucciones ejecutadas: ", 33, solucion.getCantidadInstrucciones(), 1);
+		Assert.assertEquals("Ganacia maxima de la mochila actual: ", 16, solucion.getGanaciaMaxima(), 1);
+		Assert.assertEquals("Cantidad de instrucciones ejecutadas: ", 263, solucion.getCantidadInstrucciones(), 1);
 		
 		
 	}

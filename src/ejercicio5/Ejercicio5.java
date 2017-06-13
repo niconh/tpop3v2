@@ -8,16 +8,18 @@ public class Ejercicio5 {
 	
 	public int mochila(List<ElementoMochila> elementos, int capacidad){
 		
-		cantInstrucciones++;
+		
 		
 		int [][] matriz = new int[elementos.size()+1][capacidad+1];
 		
 		for(int elem=0; elem <= elementos.size(); elem++){
 			matriz[elem][0] = 0; 
+			cantInstrucciones++;
 		}
 		
 		for(int cap=0; cap <= capacidad; cap++){
-			matriz[0][cap] = 0; 
+			matriz[0][cap] = 0;
+			cantInstrucciones++;
 		}  
 		
 		for(int elem=1; elem <= elementos.size(); elem++){

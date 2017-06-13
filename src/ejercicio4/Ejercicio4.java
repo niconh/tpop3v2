@@ -9,10 +9,13 @@ public class Ejercicio4 {
 	
 	public int mochila(List<ElementoMochila> elementos, int capacidad) {
 		
+		cantInstrucciones++;
+		
 		int res = 0;
 		if(capacidad < 0){
-				res = Integer.MAX_VALUE;
 				cantInstrucciones++;
+				res = Integer.MAX_VALUE;
+				
 		}
 		else{
 			if(capacidad > 0 && elementos.size() > 0){
@@ -21,10 +24,10 @@ public class Ejercicio4 {
 				elementosMenos1.remove(0);
 				int ganancia1 = elementos.get(0).getGanancia() + mochila(elementosMenos1, capacidad - elementos.get(0).getPeso());
 				int ganancia2 = mochila(elementosMenos1, capacidad);
-				res = Math.max(ganancia1,ganancia2);	
+				res = Math.max(ganancia1,ganancia2);
 			}
 		}
-				
+		
 		return res;
 	}
 	
