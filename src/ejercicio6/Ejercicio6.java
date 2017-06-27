@@ -34,7 +34,7 @@ public class Ejercicio6 {
 		Tupla res = new Tupla(false,sec1,sec2);
 		
 		if(numeros.size() == 0){
-			if(sumatoria(s1) == sumatoria(s2) && sumatoria(s1) != 0){
+			if(sumatoria(s1) == sumatoria(s2) && s1.size() != 0){
 				numeroDePart++;
 				res.setHaySolucion(true);
 				res.setS1(s1);

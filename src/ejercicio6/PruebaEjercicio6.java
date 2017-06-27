@@ -18,11 +18,11 @@ public class PruebaEjercicio6 {
 		numeros.add(1);
 		numeros.add(2);
 		numeros.add(3);
-//		numeros.add(4);
-//		numeros.add(5);
-//		numeros.add(6);
-//		numeros.add(7);
-//		numeros.add(8);
+		numeros.add(4);
+		numeros.add(5);
+		numeros.add(6);
+		numeros.add(7);
+		numeros.add(8);
 		
 		Ejercicio6 test = new Ejercicio6();
 		
@@ -31,8 +31,8 @@ public class PruebaEjercicio6 {
 		System.out.println("Cantidad de particiones que suman igual: " + solucion.getNumeroDeParticiones());
 		System.out.println("Cantidad de instrucciones: " + solucion.getCantidadInstrucciones());
 		
-		Assert.assertEquals("Cantidad de particiones que suman igual: ", 2, solucion.getNumeroDeParticiones(), 1);
-		Assert.assertEquals("Cantidad de instrucciones ejecutadas: ", 40, solucion.getCantidadInstrucciones(), 1);
+		Assert.assertEquals("Cantidad de particiones que suman igual: ", 216, solucion.getNumeroDeParticiones(), 1);
+		Assert.assertEquals("Cantidad de instrucciones ejecutadas: ", 9841, solucion.getCantidadInstrucciones(), 1);
 	}
 
 }
